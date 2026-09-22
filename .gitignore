@@ -1,0 +1,10 @@
+# Exported candidate data must never be committed
+*.xlsx
+*.xls
+*.csv
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

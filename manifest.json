@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Applicant Exporter for LinkedIn Hiring",
+  "short_name": "Applicant Exporter",
+  "version": "1.2.0",
+  "description": "Export applicants from your own LinkedIn job posts into one Excel file.",
+  "permissions": ["storage", "downloads", "unlimitedStorage"],
+  "host_permissions": ["https://www.linkedin.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Applicant Exporter",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["lib/xlsx.full.min.js", "export.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

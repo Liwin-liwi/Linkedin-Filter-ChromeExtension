@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Applicant Exporter</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 300px; font: 13px/1.45 "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; color: #17323A; }
+  header { background: #1E7145; color: #fff; padding: 12px 14px; }
+  h1 { margin: 0; font-size: 14px; font-weight: 600; }
+  main { padding: 12px 14px 14px; }
+  p { margin: 0 0 10px; }
+  .muted { color: #5E6E6A; font-size: 12px; }
+  .last { border: 1px solid #D9E2DC; padding: 8px 10px; margin: 10px 0; font-size: 12px; }
+  .last b { display: block; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  button { width: 100%; padding: 9px 10px; margin-top: 8px; border-radius: 5px; border: 1px solid #1E7145;
+    font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .primary { background: #1E7145; color: #fff; }
+  .primary:hover { background: #185C38; }
+  .ghost { background: #fff; color: #1E7145; }
+  .ghost:hover { background: #EEF6F1; }
+  .quiet { background: none; border-color: transparent; color: #5E6E6A; font-weight: 400; }
+  button:disabled { opacity: .45; cursor: default; }
+  button:focus-visible { outline: 2px solid #F2A900; outline-offset: 2px; }
+  .msg { min-height: 17px; margin-top: 8px; font-size: 12px; }
+  .msg.warn { color: #9A3B12; }
+</style>
+</head>
+<body>
+<header><h1>Applicant Exporter</h1></header>
+<main>
+  <p class="muted">Open a job's applicant list on LinkedIn, then open the exporter.</p>
+  <button class="primary" id="open" type="button">Open exporter on this page</button>
+  <div class="last" id="last" hidden>
+    <span class="muted">Last export</span>
+    <b id="lastTitle"></b>
+    <span id="lastMeta"></span>
+  </div>
+  <button class="ghost" id="dl" type="button" hidden>Download last export</button>
+  <button class="quiet" id="clear" type="button" hidden>Clear saved export</button>
+  <div class="msg" id="msg" role="status"></div>
+</main>
+<script src="lib/xlsx.full.min.js"></script>
+<script src="export.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
